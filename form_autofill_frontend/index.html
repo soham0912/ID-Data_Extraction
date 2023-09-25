@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aadhaar Image Comparison</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dropdown">
+          <input class="text-box" type="text" placeholder="Select Your ID" id="selectedID" readonly>
+          <div class="options">
+            <div>Aadhar</div>
+            <div>PAN Card</div>
+            <div>Passport</div>
+            <div>Drivers License</div>
+            <div>Voter ID</div>
+          </div>
+        </div>
+    </div>
+    <div class="wrapper" id="wrapper">
+        <div class="image-container">
+            <div class="image-item">
+                <div class="upload-btn-wrapper">
+                    <label>Front Image</label><br>
+                    <button class="btnfront">Upload</button>
+                    <input type="file" name="image" id="image1" accept="image/*" />
+                </div>
+                <div class="image-box">
+                    <img id="img1" src="#" title="">
+                    <p id="imageStatusMessage"></p>
+                </div>
+            </div>
+            <div class="image-item">
+                <div class="upload-btn-wrapper">
+                    <label>Back Image</label><br>
+                    <button class="btnback">Upload</button>
+                    <input type="file" name="image" id="image2" accept="image/*" />
+                </div>
+                <div class="image-box">
+                    <img id="img2" src="#" title="">
+                    <p id="imageStatusMessage2"></p>
+                </div>
+            </div>
+        </div>
+        <a><button class="submitbut" onclick="validateAadhar()">Submit</button></a>
+    </div>
+    
+    <script type="text/javascript">
+        function show(value) {
+        document.querySelector(".text-box").value = value;
+    }
+
+    const dropdown = document.querySelector(".dropdown")
+    dropdown.onclick = function() {
+        dropdown.classList.toggle("active")
+    }
+    const container = document.getElementById("container");
+    const options = document.querySelectorAll(".options div");
+    const textBox = document.getElementById("selectedID");
+    const wrapper = document.getElementById("wrapper");
+
+    function hideWrapper() {
+        wrapper.style.display = "none";
+    }
+
+    function showWrapper() {
+        wrapper.style.display = "block";
+    }
+
+    // Add click event listeners to each option
+    options.forEach(option => {
+        option.addEventListener("click", () => {
+        // Get the text content of the selected option
+        const selectedOption = option.textContent;
+        // Update the input field with the selected option
+        textBox.value = selectedOption;
+        });
+    });
+
+    document.querySelectorAll(".options div").forEach(option => {
+        option.addEventListener("click", () => {
+        const selectedOption = option.textContent;
+        textBox.value = selectedOption;
+
+        if (selectedOption === "Aadhar") {
+            showWrapper();
+        } else {
+            hideWrapper();
+        }
+        });
+    });
+
+
+    </script>
+    <script src="script.js"></script>
+    <script src="validateaadhar.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+</body>
+</html>
