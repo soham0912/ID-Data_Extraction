@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+    <link rel="stylesheet" href="formstyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Information</h1>
+        <form>
+            <div class="input-block">
+                <input type="text" name="Name" id="Name" required spellcheck="false">
+                <span class="placeholder">
+                  Name
+                </span>
+            </div>
+            <div class="input-block">
+                <input type="date" name="DOB" id="DOB" required spellcheck="false" inputmode="numeric" pattern="\d{1,2}/\d{1,2}/\d{4}">
+                <span class="placeholder" style="display: none;">
+                  Date of Birth
+                </span>
+            </div>
+            <div class="input-block">
+              <textarea id="Address" name="Address" rows="1"></textarea>
+              <span class="placeholder">
+                Address
+              </span>   
+            </div>
+            <div class="input-block">
+                <input type="text" name="AadharNo" id="AadharNo" required spellcheck="false">
+                <span class="placeholder">
+                  Aadhar Number
+                </span>
+            </div>
+            <div class="input-block">
+                <input type="text" name="PhoneNo" id="PhoneNo" required spellcheck="false">
+                <span class="placeholder">
+                  Phone number
+                </span>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+      // Retrieve JSON data from local storage
+      const jsonfront = localStorage.getItem("aadharDetailsfront");
+      const jsonback = localStorage.getItem("aadharDetailsback");
+      if (jsonfront) {
+        const aadharDetailsfront = JSON.parse(jsonfront);
+        document.getElementById("Name").value = aadharDetailsfront.Name;
+        document.getElementById("AadharNo").value = aadharDetailsfront.Aadhar_Number;
+      }
+      if (jsonback) {
+        const aadharDetailsback = JSON.parse(jsonback);
+        document.getElementById("Address").value = aadharDetailsback.Address;
+      }
+
+      function autoExpandTextarea() {
+        const textarea = document.getElementById("Address");
+        textarea.style.height = "auto"; // Reset the height to recalculate the content height
+        textarea.style.height = `${textarea.scrollHeight}px`; // Set the height to match the content
+      }
+
+      const addressTextarea = document.getElementById("Address");
+      addressTextarea.addEventListener("input", autoExpandTextarea);
+
+      function validatePhoneNumber() {
+        const phoneNumberInput = document.getElementById('PhoneNo');
+        const phoneNumber = phoneNumberInput.value.trim();    
+        const phoneRegex = /^[1-9][0-9]{9}$/;
+
+        if (phoneRegex.test(phoneNumber)) {
+          phoneNumberInput.classList.remove('invalid');
+          document.getElementById('errorText').style.display = 'none';
+        } else {
+            phoneNumberInput.classList.add('invalid');
+            document.getElementById('errorText').style.display = 'block';
+        }
+      }
+      const dateValue = aadharDetailsfront.DOB;
+
+      
+      document.getElementById('DOB').value = dateValue;
+    </script>
+</body>
+</html>
