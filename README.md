@@ -33,4 +33,7 @@ Before you begin, ensure you have the following prerequisites installed:
 3. Make any necessary corrections or additions if required.
 4. Click the "Submit Form" button to complete the process.
 
+![image](https://github.com/soham0912/ID-Data_Extraction/assets/59016312/3288662e-d08a-47c5-a7c0-596331320a1a)
+
+
 
