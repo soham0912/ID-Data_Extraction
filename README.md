@@ -13,6 +13,10 @@ Before you begin, ensure you have the following prerequisites installed:
 
 ## Usage
 
+### Hosting APIs
+
+1. Simply by running the files `extraction_front_image.py` & `extraction_front_image.py` you host the APIs.
+
 ### Selecting ID Document
 1. Run the file `index.html`
 2. On the landing page, you will be presented with a list of available national ID Documents to choose from (e.g., Aadhar card, Passport, Driver's License, etc.). This project is a work in progress therefore at the moment data extraction of only Aadhar card is being done.
