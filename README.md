@@ -25,7 +25,8 @@ Before you begin, ensure you have the following prerequisites installed:
 2. Follow the on-screen instructions to upload the necessary images of your ID document. These images may include the front and back sides of the document.
 3. Once the images are uploaded, click the "Submit" button.
 
-![image](https://github.com/soham0912/ID-Data_Extraction/assets/59016312/8afcfbc1-88ff-4b0c-9b18-018b9c6a1934)
+![image](https://github.com/soham0912/ID-Data_Extraction/assets/59016312/30229b55-805d-4204-82aa-b6aaf3bec752)
+
 
 ### Auto Form Filling
 1. After submitting the images, the system will automatically extract relevant data from the images using Optical Character Recognition (OCR) and populate the corresponding form fields.
